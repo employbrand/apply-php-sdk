@@ -1,7 +1,7 @@
 {
   "name": "employbrand/apply-php-sdk",
   "description": "Employbrand Apply PHP SDK",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "library",
   "autoload": {
     "psr-4": {
@@ -16,7 +16,6 @@
   ],
   "require": {
     "php": "^7.4",
-    "guzzlehttp/guzzle": "^7.4",
-    "guzzlehttp/psr7": "^1.8"
+    "guzzlehttp/guzzle": "^7.4"
   }
 }
