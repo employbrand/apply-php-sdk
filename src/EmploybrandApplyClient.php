@@ -2,15 +2,15 @@
 
 namespace EmploybrandApply;
 
-use EmploybrandTS\Api\Company;
-use EmploybrandTS\Api\Environment;
-use EmploybrandTS\Api\Vacancy;
-use EmploybrandTS\Exceptions\Http\InternalServerError;
-use EmploybrandTS\Exceptions\Http\NotFound;
-use EmploybrandTS\Exceptions\Http\NotValid;
-use EmploybrandTS\Exceptions\Http\PerformingMaintenance;
-use EmploybrandTS\Exceptions\Http\TooManyAttempts;
-use EmploybrandTS\Exceptions\Http\Unauthenticated;
+use EmploybrandApply\Api\Company;
+use EmploybrandApply\Api\Environment;
+use EmploybrandApply\Api\Vacancy;
+use EmploybrandApply\Exceptions\Http\InternalServerError;
+use EmploybrandApply\Exceptions\Http\NotFound;
+use EmploybrandApply\Exceptions\Http\NotValid;
+use EmploybrandApply\Exceptions\Http\PerformingMaintenance;
+use EmploybrandApply\Exceptions\Http\TooManyAttempts;
+use EmploybrandApply\Exceptions\Http\Unauthenticated;
 use Exception;
 use GuzzleHttp\Client;
 
@@ -47,7 +47,7 @@ class EmploybrandApplyClient
     }
 
 
-    public function makeAPICall(string $url, string $method = 'GET', array $options = []): \stdClass|array
+    public function makeAPICall(string $url, string $method = 'GET', array $options = [])
     {
         if( !in_array($method, ['GET', 'POST', 'PUT', 'DELETE']) ) {
             throw new Exception('Invalid method type');
