@@ -57,7 +57,7 @@ class Vacancy extends AbstractApi
      * @param array|object $data
      * @return VacancyEntity
      */
-    public function create(array|object $data): VacancyEntity
+    public function create($data): VacancyEntity
     {
         return new VacancyEntity($this->postRequest('vacancies', $data));
     }
@@ -70,7 +70,7 @@ class Vacancy extends AbstractApi
      * @param array|object $data
      * @return VacancyEntity
      */
-    public function update($id, array|object $data): VacancyEntity
+    public function update($id, $data): VacancyEntity
     {
         return new VacancyEntity($this->putRequest('vacancies/' . $id, $data));
     }

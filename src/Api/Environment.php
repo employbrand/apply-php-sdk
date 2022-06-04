@@ -10,7 +10,7 @@ class Environment extends AbstractApi
 {
 
     /**
-     * Get respondents with pagination
+     * Get environments with pagination
      *
      * @return ApiPaginator
      */
@@ -21,7 +21,7 @@ class Environment extends AbstractApi
 
 
     /**
-     * Get a respondent by id
+     * Get an environment by id
      *
      * @param $id
      * @return EnvironmentEntity

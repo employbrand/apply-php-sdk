@@ -5,6 +5,7 @@ namespace EmploybrandApply;
 use EmploybrandApply\Api\Company;
 use EmploybrandApply\Api\Environment;
 use EmploybrandApply\Api\Vacancy;
+use EmploybrandApply\Api\Webhook;
 use EmploybrandApply\Exceptions\Http\InternalServerError;
 use EmploybrandApply\Exceptions\Http\NotFound;
 use EmploybrandApply\Exceptions\Http\NotValid;
@@ -28,6 +29,8 @@ class EmploybrandApplyClient
     private $environments;
 
     private $company;
+
+    private $webhooks;
 
 
     public function __construct(string $companyId, string $token)
@@ -89,6 +92,15 @@ class EmploybrandApplyClient
             $this->environments = new Environment($this);
 
         return $this->environments;
+    }
+
+
+    public function webhooks(): Webhook
+    {
+        if( $this->webhooks == null )
+            $this->webhooks = new Webhook($this);
+
+        return $this->webhooks;
     }
 
 
