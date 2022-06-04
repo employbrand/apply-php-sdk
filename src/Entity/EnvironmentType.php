@@ -14,6 +14,8 @@ class EnvironmentType extends AbstractEntity
 
     public ?string $slug = null;
 
+    public ?string $version = null;
+
     public ?string $updatedAt = null;
 
     public ?string $createdAt = null;

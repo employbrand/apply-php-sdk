@@ -19,7 +19,7 @@ abstract class AbstractApi
     }
 
 
-    protected function getRequest(string $uri, array $query = []): array|\stdClass
+    protected function getRequest(string $uri, array $query = [])
     {
         return $this->client->makeAPICall($this->baseUri . $uri, 'GET', [
             'query' => $query
@@ -27,7 +27,7 @@ abstract class AbstractApi
     }
 
 
-    protected function postRequest(string $uri, $params = []): array|\stdClass
+    protected function postRequest(string $uri, $params = [])
     {
         $body = $this->prepareJsonBody($params);
 
@@ -37,7 +37,7 @@ abstract class AbstractApi
     }
 
 
-    protected function putRequest(string $uri, $params = []): array|\stdClass
+    protected function putRequest(string $uri, $params = [])
     {
         $body = $this->prepareJsonBody($params);
 
@@ -47,7 +47,7 @@ abstract class AbstractApi
     }
 
 
-    protected function deleteRequest(string $uri): array|\stdClass
+    protected function deleteRequest(string $uri)
     {
         return $this->client->makeAPICall($this->baseUri . $uri, 'DELETE');
     }

@@ -14,6 +14,8 @@ class Environment extends AbstractEntity
 
     public ?bool $isMain = false;
 
+    public ?string $version = null;
+
     public ?string $updatedAt = null;
 
     public ?string $createdAt = null;

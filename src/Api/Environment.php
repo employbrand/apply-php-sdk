@@ -3,7 +3,7 @@
 namespace EmploybrandApply\Api;
 
 
-use EmploybrandApply\Entity\Vacancy as RespondentEntity;
+use EmploybrandApply\Entity\Environment as EnvironmentEntity;
 
 
 class Environment extends AbstractApi
@@ -16,7 +16,7 @@ class Environment extends AbstractApi
      */
     public function list(): ApiPaginator
     {
-        return new ApiPaginator($this->client, 'environments', RespondentEntity::class);
+        return new ApiPaginator($this->client, 'environments', EnvironmentEntity::class);
     }
 
 
@@ -24,11 +24,11 @@ class Environment extends AbstractApi
      * Get a respondent by id
      *
      * @param $id
-     * @return RespondentEntity
+     * @return EnvironmentEntity
      */
-    public function getById($id): RespondentEntity
+    public function getById($id): EnvironmentEntity
     {
-        return new RespondentEntity($this->getRequest('environments/' . $id));
+        return new EnvironmentEntity($this->getRequest('environments/' . $id));
     }
 
 
