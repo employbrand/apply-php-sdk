@@ -17,6 +17,16 @@ class Environment extends AbstractEntity
 
     public ?string $email = null;
 
+    public ?string $slug = null;
+
+    public ?string $address = null;
+
+    public ?string $postalCode = null;
+
+    public ?string $city = null;
+
+    public ?string $country = null;
+
     public ?bool $isMain = false;
 
     public ?string $version = null;
@@ -26,6 +36,10 @@ class Environment extends AbstractEntity
     public ?int $invitesCount = null;
 
     public ?EnvironmentType $environmentType = null;
+
+    public array $customFields = [];
+
+    public array $availableCustomFields = [];
 
     public ?string $updatedAt = null;
 
