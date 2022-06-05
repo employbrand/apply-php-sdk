@@ -10,7 +10,7 @@ class Webhook extends AbstractEntity
 
     public ?string $name = null;
 
-    public string $type = 'all';
+    public array $types = ['all'];
 
     public ?string $url = null;
 
