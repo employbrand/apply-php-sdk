@@ -6,6 +6,11 @@ namespace EmploybrandApply\Entity;
 class Environment extends AbstractEntity
 {
 
+    protected $exclude = [
+        'environmentType'
+    ];
+
+
     public ?int $id = null;
 
     public ?string $name = null;
@@ -29,10 +34,10 @@ class Environment extends AbstractEntity
 
     public function build(array $parameters): void
     {
-        parent::build($parameters);
-
         if($parameters[ 'environment_type' ] != null)
             $this->environmentType = new EnvironmentType($parameters[ 'environment_type' ]);
+
+        parent::build($parameters);
     }
 
 }

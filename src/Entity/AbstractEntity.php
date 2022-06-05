@@ -6,6 +6,8 @@ namespace EmploybrandApply\Entity;
 abstract class AbstractEntity
 {
 
+    protected $exclude = [];
+
 
     /**
      * @param $parameters
@@ -57,6 +59,9 @@ abstract class AbstractEntity
     {
         foreach ( $parameters as $property => $value ) {
             $property = static::convertToCamelCase($property);
+
+            if( in_array($property, $this->exclude) )
+                continue;
 
             if( \property_exists($this, $property) ) {
                 $this->$property = $value;
