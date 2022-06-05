@@ -31,7 +31,8 @@ class Environment extends AbstractEntity
     {
         parent::build($parameters);
 
-        $this->environmentType = new EnvironmentType($parameters[ 'environment_types' ]);
+        if($parameters[ 'environment_type' ] != null)
+            $this->environmentType = new EnvironmentType($parameters[ 'environment_type' ]);
     }
 
 }
