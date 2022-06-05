@@ -12,11 +12,11 @@ class Webhook extends AbstractApi
     /**
      * Get all webhooks
      *
-     * @return ApiPaginator
+     * @return ApiList
      */
-    public function list(): ApiPaginator
+    public function list(): ApiList
     {
-        return new ApiPaginator($this->client, 'webhooks', WebhookEntity::class);
+        return new ApiList($this->client, 'webhooks', WebhookEntity::class);
     }
 
 
