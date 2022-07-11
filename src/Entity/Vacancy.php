@@ -7,7 +7,8 @@ class Vacancy extends AbstractEntity
 {
 
     protected $exclude = [
-        'environment'
+        'environment',
+        'formFields'
     ];
 
     public ?int $id = null;
@@ -28,6 +29,8 @@ class Vacancy extends AbstractEntity
 
     public ?Environment $environment = null;
 
+    public array $formFields = [];
+
     public ?string $publicationEndDate = null;
 
     public ?string $publicationStartDate = null;
@@ -41,6 +44,10 @@ class Vacancy extends AbstractEntity
     {
         if($parameters[ 'environment' ] != null)
             $this->environment = new Environment($parameters[ 'environment' ]);
+
+        $this->formFields = \array_map(function ($formField) {
+            return new ApplicationFormField($formField);
+        }, $parameters[ 'form_fields' ]);
 
         parent::build($parameters);
     }

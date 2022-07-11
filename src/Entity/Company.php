@@ -6,6 +6,11 @@ namespace EmploybrandApply\Entity;
 class Company extends AbstractEntity
 {
 
+    protected $exclude = [
+        'environmentTypes',
+        'applicationFormFields'
+    ];
+
     public ?int $id = null;
 
     public ?string $name = null;
@@ -13,6 +18,8 @@ class Company extends AbstractEntity
     public ?string $email = null;
 
     public array $environmentTypes = [];
+
+    public array $applicationFormFields = [];
 
     public ?string $defaultLanguage = null;
 
@@ -34,6 +41,10 @@ class Company extends AbstractEntity
         $this->environmentTypes = \array_map(function ($entity) {
             return new EnvironmentType($entity);
         }, $parameters[ 'environment_types' ]);
+
+        $this->applicationFormFields = \array_map(function ($formField) {
+            return new ApplicationFormField($formField);
+        }, $parameters[ 'application_form_fields' ]);
     }
 
 }
