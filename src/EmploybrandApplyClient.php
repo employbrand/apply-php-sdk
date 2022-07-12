@@ -39,7 +39,7 @@ class EmploybrandApplyClient
     private $files;
 
 
-    public function __construct(string $companyId, string $token, $environmentId)
+    public function __construct(string $companyId, string $token, $environmentId = 1)
     {
         return $this->init($companyId, $token, $environmentId);
     }
