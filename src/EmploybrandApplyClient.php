@@ -39,7 +39,13 @@ class EmploybrandApplyClient
     private $files;
 
 
-    public function __construct(string $companyId, string $token)
+    public function __construct(string $companyId, string $token, $environmentId)
+    {
+        return $this->init($companyId, $token, $environmentId);
+    }
+
+
+    public function init(string $companyId, string $token, int $environmentId): EmploybrandApplyClient
     {
         $this->guzzle = new Client([
             'base_uri' => $this->url,
@@ -47,6 +53,7 @@ class EmploybrandApplyClient
             'headers' => [
                 'Authorization' => 'Bearer ' . $token,
                 'X-Company' => $companyId,
+                'X-Environment' => $environmentId,
                 'Accept' => 'application/json',
                 'Content-Type' => 'application/json',
             ],
