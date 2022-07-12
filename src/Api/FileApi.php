@@ -31,7 +31,7 @@ class FileApi extends AbstractApi
         $response = $this->client->makeAPICall($this->baseUri . 'files', 'POST', [
             'multipart' => [
                 [
-                    'name' => $fileName,
+                    'name' => 'file',
                     'filename' => $fileName,
                     'Mime-Type' => $fileMime,
                     'contents' => $fileContent,
