@@ -2,6 +2,7 @@
 
 namespace EmploybrandApply;
 
+use EmploybrandApply\Api\Candidate;
 use EmploybrandApply\Api\Company;
 use EmploybrandApply\Api\Environment;
 use EmploybrandApply\Api\Vacancy;
@@ -27,6 +28,8 @@ class EmploybrandApplyClient
     private $vacancies;
 
     private $environments;
+
+    private $candidates;
 
     private $company;
 
@@ -101,6 +104,15 @@ class EmploybrandApplyClient
             $this->webhooks = new Webhook($this);
 
         return $this->webhooks;
+    }
+
+
+    public function candidates(): Candidate
+    {
+        if( $this->candidates == null )
+            $this->candidates = new Candidate($this);
+
+        return $this->candidates;
     }
 
 
