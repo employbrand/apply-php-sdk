@@ -28,21 +28,24 @@ class FileApi extends AbstractApi
      */
     public function upload($fileName, $fileMime, $fileContent, $data): FileEntity
     {
-        $response = $this->client->makeAPICall($this->baseUri . 'files', 'POST', [
-            'multipart' => [
-                [
-                    'name' => 'file',
-                    'filename' => $fileName,
-                    'Mime-Type' => $fileMime,
-                    'contents' => $fileContent,
-                ],
-                [
-                    'name' => 'form-data',
-                    'contents' => json_encode(
-                        $data
-                    )
-                ]
+        $multipart = [
+            [
+                'name' => 'file',
+                'filename' => $fileName,
+                'Mime-Type' => $fileMime,
+                'contents' => $fileContent,
             ]
+        ];
+
+        foreach($data as $key => $value) {
+            $multipart[] = [
+                'name' => $key,
+                'contents' => $value
+            ];
+        }
+
+        $response = $this->client->makeAPICall($this->baseUri . 'files', 'POST', [
+            'multipart' => $multipart
         ]);
 
         return new FileEntity($response);
