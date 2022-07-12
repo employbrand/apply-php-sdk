@@ -3,11 +3,10 @@
 namespace EmploybrandApply\Api;
 
 
-use EmploybrandApply\Exceptions\Http\NotFound;
-use EmploybrandApply\Entity\Candidate as CandidateEntity;
+use EmploybrandApply\Entity\CandidateEntity;
 
 
-class Candidate extends AbstractApi
+class CandidateApi extends AbstractApi
 {
 
     /**

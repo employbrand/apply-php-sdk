@@ -3,7 +3,7 @@
 namespace EmploybrandApply\Entity;
 
 
-class Candidate extends AbstractEntity
+class CandidateEntity extends AbstractEntity
 {
 
     public ?int $id = null;

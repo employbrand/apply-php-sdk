@@ -3,7 +3,7 @@
 namespace EmploybrandApply\Entity;
 
 
-class Company extends AbstractEntity
+class CompanyEntity extends AbstractEntity
 {
 
     protected $exclude = [
@@ -39,7 +39,7 @@ class Company extends AbstractEntity
         parent::build($parameters);
 
         $this->environmentTypes = \array_map(function ($entity) {
-            return new EnvironmentType($entity);
+            return new EnvironmentTypeEntity($entity);
         }, $parameters[ 'environment_types' ]);
 
         $this->applicationFormFields = \array_map(function ($formField) {
