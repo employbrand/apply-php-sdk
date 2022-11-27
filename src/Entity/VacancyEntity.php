@@ -45,9 +45,11 @@ class VacancyEntity extends AbstractEntity
         if($parameters[ 'environment' ] != null)
             $this->environment = new EnvironmentEntity($parameters[ 'environment' ]);
 
-        $this->formFields = \array_map(function ($formField) {
-            return new ApplicationFormField($formField);
-        }, $parameters[ 'form_fields' ]);
+        if(!empty($parameters[ 'form_fields' ])) {
+            $this->formFields = \array_map(function ($formField) {
+                return new ApplicationFormField($formField);
+            }, $parameters[ 'form_fields' ]);
+        }
 
         parent::build($parameters);
     }
