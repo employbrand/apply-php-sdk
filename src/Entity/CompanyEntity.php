@@ -11,7 +11,7 @@ class CompanyEntity extends AbstractEntity
         'applicationFormFields'
     ];
 
-    public ?int $id = null;
+    public ?string $id = null;
 
     public ?string $name = null;
 
